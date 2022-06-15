@@ -1,7 +1,7 @@
 {
   "name": "flomea",
   "version": "1.0.0",
-  "description": "",
+  "description": "Awwwards.com Animation Solo Project",
   "main": "index.js",
   "scripts": {
     "build": "webpack --progress --config webpack.config.build.js",
@@ -20,7 +20,7 @@
   "homepage": "https://github.com/Eamon02/Floema#readme",
   "devDependencies": {
     "@babel/core": "^7.18.2",
-    "babel": "^6.23.0",
+    "@babel/cli": "^7.0.0",
     "babel-loader": "^8.2.5",
     "clean-webpack-plugin": "^4.0.0",
     "copy-webpack-plugin": "^11.0.0",
