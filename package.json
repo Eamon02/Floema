@@ -4,8 +4,10 @@
   "description": "Awwwards.com Animation Solo Project",
   "main": "index.js",
   "scripts": {
-    "build": "webpack --progress --config webpack.config.build.js",
-    "development": "webpack serve --progress --config webpack.config.development.js",
+    "backend:build": "node app.js",
+    "backend:development": "nodemon app.js",
+    "frontend:build": "webpack --progress --config webpack.config.build.js",
+    "frontend:development": "webpack serve --progress --config webpack.config.development.js",
     "start": "npm run development"
   },
   "repository": {
@@ -30,6 +32,7 @@
     "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-promise": "^6.0.0",
     "file-loader": "^6.2.0",
+    "glslify-loader": "^2.0.0",
     "image-minimizer-webpack-plugin": "^3.2.3",
     "imagemin": "^8.0.1",
     "imagemin-gifsicle": "^7.0.0",
@@ -37,6 +40,7 @@
     "imagemin-optipng": "^8.0.0",
     "mini-css-extract-plugin": "^2.6.0",
     "postcss-loader": "^7.0.0",
+    "raw-loader": "^4.0.2",
     "sass": "^1.52.1",
     "sass-loader": "^13.0.0",
     "semver-regex": "^4.0.3",
@@ -48,7 +52,7 @@
     "webpack-merge": "^5.7.3"
   },
   "dependencies": {
-    "glslify-loader": "^2.0.0",
-    "raw-loader": "^4.0.2"
+    "express": "^4.18.1",
+    "nodemon": "^2.0.16"
   }
 }
