@@ -1,1 +1,1 @@
-import image from 'images/1 copy.png';
+import image from "images/1 copy.png";

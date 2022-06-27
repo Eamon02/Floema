@@ -1,0 +1,3 @@
+/*! For license information please see main.06a707d9fb52e24cbffd.hot-update.js.LICENSE.txt */
+"use strict";self.webpackHotUpdateflomea("main",{"./app/index.js":(a,e,p)=>{p.r(e);p("./app/images/1 copy.png")}},(function(a){a.h=()=>"ebb1cf76fa0b1095ba45"}));
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoibWFpbi4wNmE3MDdkOWZiNTJlMjRjYmZmZC5ob3QtdXBkYXRlLmpzIiwibWFwcGluZ3MiOiI7K0hBQUFBLEVBQW9CQyxFQUFJLElBQU0iLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly9mbG9tZWEvd2VicGFjay9ydW50aW1lL2dldEZ1bGxIYXNoIl0sInNvdXJjZXNDb250ZW50IjpbIl9fd2VicGFja19yZXF1aXJlX18uaCA9ICgpID0+IChcImViYjFjZjc2ZmEwYjEwOTViYTQ1XCIpIl0sIm5hbWVzIjpbIl9fd2VicGFja19yZXF1aXJlX18iLCJoIl0sInNvdXJjZVJvb3QiOiIifQ==
