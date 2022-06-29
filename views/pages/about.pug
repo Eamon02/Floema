@@ -1,8 +1,15 @@
-extends ../base.pug 
+extends ../base.pug
 
-block variables 
-    - var template ='about'
+block variables
+  - var template ='about'
 
-block content 
-    h1.collections__title About
+block content
+  .about
+    .about--wrapper
+      section.about--gallery
+        .about--gallery--wrapper
+          each media in about.data.gallery
+            figure.about--gallery--media
+              img.about--gallery--media--image(alt=media.image.alt src=media.image.url)
+
 

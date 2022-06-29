@@ -10,7 +10,7 @@ const app = express();
 const port = process.env.PORT || 3000;
 
 const Prismic = require("@prismicio/client");
-const PrismicHelper = require("@prismicio/helpers");
+const PrismicH = require("@prismicio/helpers");
 
 // Initialize the prismic.io api
 const initApi = (req) => {
@@ -39,7 +39,7 @@ app.use((req, res, next) => {
     endpoint: process.env.PRISMIC_ENDPOINT,
     linkResolver: handleLinkResolver,
   };
-  res.locals.PrismicHelper = PrismicHelper;
+  res.locals.PrismicH = PrismicH;
 
   next();
 });
@@ -49,7 +49,7 @@ app.set("view engine", "pug");
 app.locals.basedir = app.get("views");
 
 const handleRequest = async (api) => {
-  const [about, meta, home, { results: collections }] = await Promise.all([
+  const [meta, home, about, { results: collections }] = await Promise.all([
     api.getSingle("meta"),
     api.getSingle("home"),
     api.getSingle("about"),
@@ -91,22 +91,47 @@ const handleRequest = async (api) => {
   };
 };
 
-app.get("/", (req, res) => {
-  res.render("pages/home");
+app.get("/", async (req, res) => {
+  const api = await initApi(req);
+  const defaults = await handleRequest(api);
+
+  res.render("pages/home", {
+    ...defaults,
+  });
 });
 
-app.get("/about", (req, res) => {
-  res.render("pages/about");
+app.get("/about", async (req, res) => {
+  const api = await initApi(req);
+  const defaults = await handleRequest(api);
+
+  res.render("pages/about", {
+    ...defaults,
+  });
 });
 
-app.get("/detail/:id", (req, res) => {
-  res.render("pages/detail");
+app.get("/collections", async (req, res) => {
+  const api = await initApi(req);
+  const defaults = await handleRequest(api);
+
+  res.render("pages/collections", {
+    ...defaults,
+  });
 });
 
-app.get("/collections", (req, res) => {
-  res.render("pages/collections");
+app.get("/detail/:uid", async (req, res) => {
+  const api = await initApi(req);
+  const defaults = await handleRequest(api);
+
+  const product = await api.getByUID("product", req.params.uid, {
+    fetchLinks: "collection.title",
+  });
+
+  res.render("pages/detail", {
+    ...defaults,
+    product,
+  });
 });
 
 app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`);
+  console.log(`Example app listening at http://localhost:${port}`);
 });
