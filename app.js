@@ -62,6 +62,7 @@ const handleRequest = async (api) => {
 
   home.data.gallery.forEach((item) => {
     assets.push(item.image.url);
+    console.log(home.data);
   });
 
   about.data.gallery.forEach((item) => {
@@ -73,6 +74,7 @@ const handleRequest = async (api) => {
       section.items.forEach((item) => {
         assets.push(item.image.url);
       });
+      // console.log(about.data.body);
     }
   });
 

@@ -12,4 +12,36 @@ block content
             figure.about--gallery--media
               img.about--gallery--media--image(alt=media.image.alt src=media.image.url)
 
+      each section in about.data.body
+        if section.slice_type == 'title'
+          h2.about--title=section.primary.text
+        if section.slice_type == 'content'
+          section.about--content
+            .about--content--wrapper
+              p.about--content--label=section.primary.label
+
+              .about--content--description!=PrismicH.asHTML(section.primary.description)
+
+              figure.about--contnet--media
+                img.about--content--media--image(src=section.primary.image.url alt=section.primary.image.alt)
+
+        if section.slice_type == 'hightlight'
+          section.about--highlight
+            .about--highlight--wrapper
+              if section.primary.label
+                p.about--highlight--label=section.primary.label
+
+              h3.about--highlight--title=section.primary.title
+
+              each media in section.items
+                figure.about--highlight--media
+                  img.about--highlight--media--image(src=media.image.url alt=media.image.alt)
+
+        if section.slice_type == 'gallery'
+          section.about__gallery
+            .about__gallery__wrapper
+              each media in section.items
+                figure.about__gallery__media
+                  img.about__gallery__media__image(src=media.image.url alt=media.image.alt)
+
 
